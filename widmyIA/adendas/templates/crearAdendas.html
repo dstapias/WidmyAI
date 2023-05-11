@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% block content %}
+<style>
+    button {
+        background-color: green;
+        color: white;
+        font-size: 16px;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+    button:hover {
+        background-color: darkgreen;
+    }
+
+    form {
+        text-align: center;
+    }
+</style>
+
+<form action="/adendas/adendaCrearDoc/" method="post">
+  {% csrf_token %}
+  <label for="documento">Documento:</label>
+  <input type="text" name="documento" id="documento">
+  <br><br>
+  <label for="identificador">Identificador:</label>
+  <input type="text" name="identificador" id="identificador">
+  <br><br>
+  <label for="fecha">Fecha:</label>
+  <input type="date" name="fecha" id="fecha">
+  <br><br>
+  <label for="descripcion">Descripción:</label>
+  <textarea name="descripcion" id="descripcion"></textarea>
+  <br><br>
+  <button type="submit">Agregar Adenda</button>
+</form>
+
+{% endblock %}
+
